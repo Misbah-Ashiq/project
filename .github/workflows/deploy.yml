@@ -24,7 +24,6 @@ jobs:
           cd /home/ubuntu/project
           git config --global --add safe.directory /home/ubuntu/project
           git pull origin master
-          cd ..
           sudo docker compose build backend
           sudo docker compose up backend -d
         EOF
