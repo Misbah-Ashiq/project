@@ -1,16 +1,9 @@
-# Dockerfile.frontend
 FROM node:16
-
 WORKDIR /app
-
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm install
-
 COPY frontend/ .
-
 RUN npm run build
-
-# Use a simple static server
 RUN npm install -g serve
 CMD ["serve", "-s", "build", "-l", "3000"]
 
