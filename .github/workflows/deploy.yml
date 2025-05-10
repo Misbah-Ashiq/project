@@ -22,7 +22,7 @@ jobs:
         chmod 600 /tmp/deploy_key
         ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no ubuntu@$SERVER_IP <<EOF
           cd /home/ubuntu/project
-          
+          git config --global --add safe.directory /home/ubuntu/project
           git pull origin master
           cd ..
           sudo docker compose build backend
