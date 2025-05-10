@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master  # or the branch you want to monitor
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: SSH into server and run commands using SSH key
+      env:
+        SSH_KEY: ${{ secrets.EC2_KEY }}
+        SERVER_IP: ${{ secrets.EC2_HOST }}
+      run: |
+        echo "$SSH_KEY" > /tmp/deploy_key
+        chmod 600 /tmp/deploy_key
+        ssh -i /tmp/deploy_key -o StrictHostKeyChecking=no root@$SERVER_IP <<EOF
+          cd /root/project
+          
+          git pull origin master
+          cd ..
+          sudo docker compose build backend
+          sudo docker compose up backend -d
+        EOF
+
+    - name: Clean up SSH key
+      run: rm /tmp/deploy_key
