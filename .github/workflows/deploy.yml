@@ -24,8 +24,8 @@ jobs:
           cd /home/ubuntu/project
           git config --global --add safe.directory /home/ubuntu/project
           git pull origin master
-          sudo docker compose build 
-          sudo docker compose up
+          sudo docker compose build backend
+          sudo docker compose up backend -d
         EOF
 
     - name: Clean up SSH key
