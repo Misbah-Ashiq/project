@@ -6,7 +6,7 @@ function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch('http://44.203.143.31:5000/signup', {
+    const response = await fetch('http://54.210.207.21:5000/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

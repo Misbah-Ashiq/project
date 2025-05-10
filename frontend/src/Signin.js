@@ -15,7 +15,7 @@ function Signin() {
     }
 
     try {
-      const response = await fetch('http://44.203.143.31:5000/signin', { // Ensure the URL is complete with http://
+      const response = await fetch('http:///54.210.207.21:5000/signin', { // Ensure the URL is complete with http://
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
