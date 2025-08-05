@@ -42,12 +42,3 @@ docker-compose up --build
 kubectl apply -f k8s/
 ```
 > 💡 Note: AWS credentials and EKS cluster must be configured beforehand. Use `eksctl`, `kubectl` & `AWS CLI`.
-
-## 📸 Screenshots
-_Add screenshots or logs from your Docker, Kubernetes, or AWS deployment here_
-
-## 📄 License
-This project is licensed under MIT License. You’re free to use, share, and build upon it.
-
-## 🔗 Live Demo
-_Optional: Add your hosted demo link if deployed_
